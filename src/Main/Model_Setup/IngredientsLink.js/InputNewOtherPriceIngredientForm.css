@@ -1,0 +1,162 @@
+.overlay__backdrop{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.356);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input__new__ingredient__form__outer{
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.input__new__ingredient__form__outer * {
+    font-family: Calibri;;
+    font-size: 14px;
+    font-weight: 200;  
+}
+
+.input__new__ingredient__form__header{
+    width: 100%;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input__new__ingredient__form__header__title{
+    font-family: Calibri;
+    color: rgb(51, 63, 72);
+    font-weight: 300;
+}
+
+.input__new__ingredient__form__header__icon{
+    color: rgb(141, 198, 63);
+}
+
+.input__new__ingredient__form__close__button:hover{
+    color: rgb(245, 0, 0);
+    
+}
+
+.input__new__ingredient__form__update__or__add__toggle{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.input__new__ingredient__form__label{
+    margin-bottom: 10px;
+}
+
+
+.input__new__ingredient__from__price__source, .input__new__ingredient__from__price__value, .input__new__ingredient__form__select__identifier{
+    color: rgb(51, 63, 72);
+    margin-bottom: 15px !important;
+    margin-top: 15px;
+    width: 90%;
+}
+
+.input__new__ingredient__form__select__identifier{
+    margin-top: 30px;
+    width: 90%;
+    font-family: Calibri;
+    color: rgb(51, 63, 72);
+    font-size: 14px;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.input__new__ingredient__form__search__info, .input__new__ingredient__form__search__info>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Calibri;
+    color: rgb(51, 63, 72);
+    font-size: 12px;
+    font-weight: 200;
+    margin-top: 5px;
+}
+
+.input__new__ingredient__form__submit__button{
+    color: rgb(51, 63, 72);
+    margin-bottom: 15px !important;
+    margin-top: 15px;
+    width: 90%;
+}
+
+.input__new__ingredient__form__submit__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input__new__ingredient__form__warning__message{
+    color: salmon;
+    background-color: rgba(250, 128, 114, 0.267);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius:3px;
+    margin-bottom: 15px !important;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+}
+
+
+
+/*Input Combo Box and Text Field CSS*/
+.MuiToggleButton-sizeSmall{
+    font-size: 10px !important;
+    text-transform: capitalize !important;
+}
+
+ .MuiAutocomplete-popper *,  .MuiAutocomplete-tag *, .MuiAutocomplete-groupLabel *,.MuiAutocomplete-inputRoot *,  .MuiAutocomplete-option *, .MuiAutocomplete-paper *, .MuiAutocomplete-inputFocused *, .MuiAutocomplete-option *, .MuiAutocomplete-input *, .Mui-focused *, .MuiAutocomplete-fullWidth *, .Mui-focused *, .MuiAutocomplete-inputRoot *{
+    font-weight: 100 !important;
+    font-size: 12px !important;
+}
+
+.MuiAutocomplete-inputFocused *,.Mui-focused *{
+    border-color:rgb(141, 198, 63) !important;
+    font-size: 12px !important;
+}
+
+.MuiAutocomplete-option:hover{
+    background-color: rgba(142, 198, 63, 0.3) !important;
+}
+
+#combo__search__box-label{
+    font-weight: 100 !important;
+    font-size: 12px !important;
+}
+
+#combo__search__box{
+    font-weight: 100 !important;
+    font-size: 12px !important;
+} 
+/*Input Combo Box and Text Field CSS*/
+
+
+
+
+

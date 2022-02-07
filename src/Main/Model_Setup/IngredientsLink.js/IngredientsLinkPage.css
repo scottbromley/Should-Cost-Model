@@ -1,0 +1,128 @@
+.ingredients__link__page__outer{
+    background-color: whitesmoke;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+    margin: 5px;
+    margin-left: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ingredients__link__page__pre__table__info{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Calibri;
+    font-weight: 300;
+}
+
+
+.ingredients__link__page__pre__table__model__info{
+    width: 33%;
+}
+
+.ingredients__link__page__pre__table__title{
+    width: 33%;
+}
+
+.ingredients__link__page__pre__table__table__settings{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: top;
+}
+
+.ingredients__link__page__pre__table__table__settings>button{
+    padding: 5px;
+    height: 30px;
+    padding-left: 10px;
+    margin: 3px;
+    padding-right: 10px;
+    border: 2px solid rgb(189, 122, 179);
+    border-radius: 15px;
+    /* font-family: tahoma; */
+    font-size: 10px;
+    font-weight: 600;
+    color: rgb(189, 122, 179);
+}
+
+.ingredients__link__page__table{
+    width: 100%;
+    margin: 10px;
+}
+
+
+
+.ag-header-cell-label .ag-header-cell-text {
+    white-space: normal !important;
+    font-size: 10px !important;
+  }
+  
+.ag-theme-alpine div.ag-row {
+    font-size: 10px !important;
+}
+
+
+.ag-cell-editor-autocomplete-wrapper{
+    height: 100%;
+    width: 100%;
+}
+
+.ag-cell-editor-autocomplete{
+    background-color:#f5f6fa;
+    z-index:1000;
+    overflow-y:auto;
+    overflow-x:hidden;
+    box-sizing:border-box;
+    border:1px solid rgba(50,50,50,.6);
+    max-height:25% !important;
+    max-width:100% !important;
+}
+    
+.ag-cell-editor-autocomplete *{
+    font:inherit
+}
+
+.ag-cell-editor-autocomplete-input{
+    height: 100%;
+}
+
+.ag-cell-editor-autocomplete>div{
+    margin:0;
+    height: 100% !important;
+    color: rgb(51, 63, 72);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100% !important;
+}
+
+.ag-cell-editor-autocomplete>div.group{
+    background-color:#7f8fa6;
+    width: 100% !important;
+}
+
+.ag-cell-editor-autocomplete>div{
+    background-color: whitesmoke;
+    color: rgb(51, 63, 72);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    width: 100% !important;
+}
+    
+.ag-cell-editor-autocomplete>div:hover:not(.group),.ag-cell-editor-autocomplete>div.selected{
+    background:#dcdde1;
+    cursor:pointer
+}
+
+.ag-cell-editor-autocomplete>div>*>strong{
+    font-weight:bold !important
+}

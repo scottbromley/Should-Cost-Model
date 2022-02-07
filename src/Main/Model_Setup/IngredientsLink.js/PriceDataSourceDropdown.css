@@ -1,0 +1,12 @@
+.price__data__source__dropdown__outer>select{
+    background-color: transparent;
+    border: none;
+    font-size: 10px;
+}
+
+.price__data__source__dropdown__outer>select>option{
+    font-size: 100px;
+    color: red;
+    font-weight: 200;
+}
+

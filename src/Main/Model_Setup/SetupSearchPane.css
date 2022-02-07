@@ -1,0 +1,109 @@
+.setupsearchpane__outer{
+    /* position: absolute;
+    top: 0px; */
+    bottom: 0px;
+    width: 200px;
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(51, 63, 72);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.setupsearchpane__outer>h4{
+    color: rgb(51, 63, 72);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.setupsearchpane__search__bar{
+    position: relative;
+    width: 190px;
+    height: 40px;
+    left: 0%;
+    
+}
+
+.setupsearchpane__search__bar__selector{
+    position: absolute !important;
+    width: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.setupsearchpane__search__bar__icon{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+}
+
+.setupsearchpane__search__bar>form>input{
+    border: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    background: transparent;
+    color: grey;
+    font-size: 10px;
+    padding-left: 7px;
+}
+
+.setupsearchpane__search__details{
+    background-color: whitesmoke;
+    font-family: Calibri;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.setupsearchpane__search__details>p{
+    color: rgb(51, 63, 72);
+    font-weight: 200;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.setupsearchpane__search__details__row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.setupsearchpane__search__details__label{
+    text-align: left;
+    color: rgb(51, 63, 72);
+    font-size: 10px;
+    font-weight: 400;
+    font-family: Calibri;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.setupsearchpane__search__details__value{
+    width: 190px;
+    height: 20px;
+    background-color: white;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    color: rgb(51, 63, 72);
+    font-size: 10px;
+    color: rgb(51, 63, 72);
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

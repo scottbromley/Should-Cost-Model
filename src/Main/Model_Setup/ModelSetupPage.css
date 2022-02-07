@@ -1,0 +1,6 @@
+.model__setup__page__outer{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+}

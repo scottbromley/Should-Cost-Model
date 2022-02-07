@@ -1,0 +1,68 @@
+.app__sidebar__outer{
+    position: fixed;
+    left: 0px;
+    top:0px;
+    bottom: 0px;
+    width: 100px;
+    background-color: rgb(51, 63, 72);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.app__sidebar__logo{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.app__sidebar__content{
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    bottom: 0px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.app__sidebar__button__outer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app__sidebar__button__outer>p{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    font-family: tahoma;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.app__sidebar__button__outer:hover {
+    cursor: pointer;
+    color: rgb(141, 198, 63);
+}
+
+.app__sidebar__active{
+    color: rgb(141, 198, 63);
+}
+
+.app__sidebar__rotate{
+    animation: rotateLogo 1s linear;
+}
+
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(180deg);
+      }
+}
