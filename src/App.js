@@ -5,6 +5,7 @@ import AppSidebar from './Main/AppSidebar.js';
 import AppWindow from './Main/AppWindow.js';
 // import { initializeApp } from "firebase/app";
 import firebase from 'firebase/compat/app';
+import AppInfoPane from './Main/AppInfoPane';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,11 +28,19 @@ function App() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+  const [appInfoPaneToggle, setAppInfoPaneToggle] = useState(false);
+
+  function handleToggleAppInfoPane(){
+      setAppInfoPaneToggle(!appInfoPaneToggle);
+  }
+
+
   return (
     <div className="App">
-      <AppHeader />
+      <AppHeader handleToggleAppInfoPane={handleToggleAppInfoPane}/>
       <AppSidebar selectPage={selectPage} selectedPage={selectedPage}/>
       <AppWindow selectedPage={selectedPage}/>
+      {appInfoPaneToggle && <AppInfoPane handleToggleAppInfoPane={handleToggleAppInfoPane} />}
     </div>
   );
 }

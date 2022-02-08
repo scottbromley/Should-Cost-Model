@@ -97,8 +97,9 @@ function IngredientsLinkPage({LPFSearchedOption}) {
         );
         setOtherPriceDataList(otherPriceListRemoveDuplicates);
         
-        const otherPriceFullDataMapped = otherPriceData.map(item => ({value: item.UNIQUE_ID_STRING, label: item.UNIQUE_ID_STRING, price: item.PRICE}))
-        const otherPriceFullDataRemoveDuplicaes = otherPriceFullDataMapped.filter((value, index, self) =>
+        const otherPriceFullDataMapped = otherPriceData.map(item => ({value: item.UNIQUE_ID_STRING, label: item.UNIQUE_ID_STRING, price: item.PRICE, timestamp: item.TIMESTAMP}))
+        const otherPriceFullDataSorted = otherPriceFullDataMapped.sort((a, b) => (a.timestamp > b.timestamp) ? -1 : 1);
+        const otherPriceFullDataRemoveDuplicaes = otherPriceFullDataSorted.filter((value, index, self) =>
             index === self.findIndex((t) => (
             t.value === value.value
                 ))
@@ -108,14 +109,13 @@ function IngredientsLinkPage({LPFSearchedOption}) {
 
         setShowLoadingSpinner(false);
 
-    }, [LPFSearchedOption])
+    }, [LPFSearchedOption, showNewIngredientFormToggle])
 
     
     function percentageConverter(params){
         const output = (Number(params.value)*100).toFixed(2) + '%'
         return output
     }
-
 
     // function linkageArray(){
     //     const linkedInfo = dummyData.map(item => {
@@ -148,10 +148,12 @@ function IngredientsLinkPage({LPFSearchedOption}) {
                         return {...item, "GROSS_PRICE": '', "LINKAGE_MADE": "NOT_LINKED", "NET_PRICE": '', "COST_IN_PRODUCT": ''}
                     }
                 } else if(item.PRICE_DATA_SOURCE === 'Other'){
+                    console.log(otherPriceIngredientFullInfo);
                     const otherPriceData = otherPriceIngredientFullInfo.filter(element => {
                         return element.value === item.GC_CODE_OR_IDENTIFIER.value;
                     })
                     if (otherPriceData.length){
+                    console.log(otherPriceData);
                     const quantity = item.QUANTITY;
                     const grossNetPrice = otherPriceData[0].price*1
                     const cost_in_product = quantity*otherPriceData[0].price;
@@ -166,7 +168,7 @@ function IngredientsLinkPage({LPFSearchedOption}) {
                 return {...item, "GROSS_PRICE": '', "LINKAGE_MADE": "NOT_LINKED", "NET_PRICE": '', "COST_IN_PRODUCT": ''}
              }
         })
-        console.log(linkedInfo);
+        // console.log(linkedInfo);
         const db = getDatabase();
         set(ref(db, 'ASSIGNED/' + LPFSearchedOption), linkedInfo);
         setDummyData(linkedInfo);
@@ -238,8 +240,8 @@ function IngredientsLinkPage({LPFSearchedOption}) {
                 {showNewIngredientFormToggle && <InputNewOtherPriceIngredientForm setShowNewIngredientFormToggle={setShowNewIngredientFormToggle} inputOtherPriceIngFormData={inputOtherPriceIngFormData}/>}
             </div>
             <div className='ingredients__link__page__pre__table__info'>
-                <div className='ingredients__link__page__pre__table__model__info'>Model Info</div>
-                <div className='ingrediDents__link__page__pre__table__title'>Pre Table Information</div>
+                <div className='ingredients__link__page__pre__table__model__info'></div>
+                <div className='ingrediDents__link__page__pre__table__title'>Recipe Ingredients List</div>
                 <div className='ingredients__link__page__pre__table__table__settings'>
                     <button onClick={()=>autoSizeAll(false)}>Autosize Columns</button>
                     {/* <button onClick={()=>autoSizeAll(true)}>Autosize Ignore Headers</button> */}
@@ -252,7 +254,7 @@ function IngredientsLinkPage({LPFSearchedOption}) {
                         <AgGridColumn field="SUBCOMPONENT_STRING" headerName="Ingredient" sortable={true} filter={true} checkboxSelection={true} ></AgGridColumn>
                         <AgGridColumn field="QUANTITY" headerName="Quantity" sortable={ true } filter={ true } valueFormatter={percentageConverter}  ></AgGridColumn>
                         <AgGridColumn field="PRICE_DATA_SOURCE" headerName="Price Data Source" sortable={ true } filter={ true } editable={true} cellEditor="agSelectCellEditor" cellEditorParams={{values: ['LPF', 'Other', 'Input', 'Proposed']}} ></AgGridColumn>
-                        <AgGridColumn field="GC_CODE_OR_IDENTIFIER" headerName="Greencore Code or Other Source Identifier" sortable={ true } filter={ true } editable={true} cellEditor={AutocompleteSelectCellEditor} cellEditorParams={searchOptionCellParams} valueFormatter={dropDownIdentifierFormatter}></AgGridColumn>
+                        <AgGridColumn field="GC_CODE_OR_IDENTIFIER" headerName="Code or Other Source Identifier" sortable={ true } filter={ true } editable={true} cellEditor={AutocompleteSelectCellEditor} cellEditorParams={searchOptionCellParams} valueFormatter={dropDownIdentifierFormatter}></AgGridColumn>
                         <AgGridColumn field="LINKAGE_MADE" headerName="" width={50} sortable={ true } filter={ true } cellRendererFramework={renderLinkIcon}></AgGridColumn>
                         <AgGridColumn field="GROSS_PRICE" headerName="Gross Price (per kg)" sortable={ true } filter={ true } valueFormatter={currencyFormat} ></AgGridColumn>
                         <AgGridColumn field="NET_PRICE" headerName="Net Price (per kg)" sortable={ true } filter={ true } valueFormatter={currencyFormat}></AgGridColumn>

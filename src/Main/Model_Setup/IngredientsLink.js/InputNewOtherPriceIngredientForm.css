@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;   
+    font-family: Calibri;
 }
 
 .input__new__ingredient__form__outer * {
@@ -36,12 +37,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .input__new__ingredient__form__header__title{
-    font-family: Calibri;
     color: rgb(51, 63, 72);
     font-weight: 300;
+    font-family: Tahoma;
 }
 
 .input__new__ingredient__form__header__icon{
@@ -61,7 +63,9 @@
 
 
 .input__new__ingredient__form__label{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-family: Tahoma;
+    font-size: 12px;
 }
 
 

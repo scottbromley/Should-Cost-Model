@@ -1,9 +1,33 @@
 .app__header__outer{
     position: fixed;
     top: 0px;
-    left: 100px;
+    left: 60px;
     right: 0px;
     height: 50px;
     background-color: rgb(196, 196, 196);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.app__header__information__button{
+    height: 30px;
+    background-color:rgb(141, 198, 63);
+    box-shadow: rgba(0, 0, 0, 0.39) 1.95px 1.95px 2.6px;
+    border-radius:20px;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+    
+}
+
+.app__header__information__button:hover{
+    cursor: pointer;
+    background-color: rgb(87, 126, 33);
 }

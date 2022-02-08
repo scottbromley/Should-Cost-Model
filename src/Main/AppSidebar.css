@@ -3,7 +3,7 @@
     left: 0px;
     top:0px;
     bottom: 0px;
-    width: 100px;
+    width: 60px;
     background-color: rgb(51, 63, 72);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -19,7 +19,7 @@
     top: 50px;
     left: 0px;
     bottom: 0px;
-    width: 100px;
+    width: 60px;
     display: flex;
     flex-direction: column;
     justify-content: top;

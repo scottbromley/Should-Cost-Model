@@ -1,6 +1,6 @@
 import React from 'react';
 import './AppSidebar.css';
-import logo from './Greencore_Logo_White.png';
+import logo from './should-cost-logo-v2.png';
 import { VscSettingsGear } from "react-icons/vsc";
 import { SiReact } from "react-icons/si";
 import { GoGraph } from "react-icons/go";
@@ -12,7 +12,7 @@ function AppSidebar({selectPage, selectedPage}) {
     return (
         <div className='app__sidebar__outer'>
             <div className='app__sidebar__logo'>
-                <img src={logo} alt="Greencore Logo" width="100" height="50"/>
+                <img src={logo} alt="Greencore Logo" width="60" height="60"/>
             </div>
             <div className='app__sidebar__content'>
                 <div className={`app__sidebar__button__outer ${selectedPage === "SETUP" && 'app__sidebar__active'}`} onClick={()=>selectPage("SETUP")}>

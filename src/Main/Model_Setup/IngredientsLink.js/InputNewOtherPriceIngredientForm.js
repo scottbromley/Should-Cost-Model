@@ -10,6 +10,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { getDatabase, ref, set, onValue} from "firebase/database";
 import Button from '@mui/material/Button';
 import { formatRelative } from 'date-fns';
+import firebase from 'firebase/compat';
 
 
 
@@ -42,14 +43,29 @@ function InputNewOtherPriceIngredientForm({setShowNewIngredientFormToggle, input
         const otherPriceRef = ref(db, 'OTHER/');
         onValue(otherPriceRef, (snapshot) => {
             const otherPriceData = snapshot.val();
-            setOtherPriceDataList(otherPriceData.map(item => (
-                {value: item.UNIQUE_ID_STRING, label: item.UNIQUE_ID_STRING}
+            
+            const otherPriceDataMapped = otherPriceData.map(item => (
+                {value: item.UNIQUE_ID_STRING, label: item.UNIQUE_ID_STRING, timstamp: item.TIMESTAMP}
+                ));
+            const otherPriceSorted = otherPriceDataMapped.sort((a, b) => (a.timestamp > b.timestamp) ? -1 : 1);
+            const otherPriceDataRemoveDuplicates = otherPriceSorted.filter((value, index, self) =>
+            index === self.findIndex((t) => (
+            t.value === value.value
                 ))
-            )
-            setOtherPriceFullData(otherPriceData.map(item => (
+            );
+            setOtherPriceDataList(otherPriceDataRemoveDuplicates);
+
+
+            const otherPriceFullDataMapped = otherPriceData.map(item => (
                 {value: item.UNIQUE_ID_STRING, label: item.UNIQUE_ID_STRING, price: item.PRICE, timestamp: item.TIMESTAMP}
             ))
-            )
+            const otherPriceFullDataSorted = otherPriceFullDataMapped.sort((a, b) => (a.timestamp > b.timestamp) ? -1 : 1);
+            const otherPriceFullDataRemoveDuplicates = otherPriceFullDataSorted.filter((value, index, self) =>
+            index === self.findIndex((t) => (
+            t.value === value.value
+                ))
+            );
+            setOtherPriceFullData(otherPriceFullDataRemoveDuplicates);
         })
     }, [])
 
@@ -77,7 +93,7 @@ function InputNewOtherPriceIngredientForm({setShowNewIngredientFormToggle, input
             setIsUniqueChecker(null);
             //Update the last upated value and price
             if(filteredOtherPriceList.length === 1){
-                setLastUpdatedOn(formatDate(new Date(filteredOtherPriceList[0].timestamp*1000)));
+                setLastUpdatedOn(formatDate(new Date(filteredOtherPriceList[0].timestamp)));
                 setCurrentPrice(filteredOtherPriceList[0].price);
             } 
         } else {
@@ -106,14 +122,12 @@ function InputNewOtherPriceIngredientForm({setShowNewIngredientFormToggle, input
 
     function handleSubmitForm(){
         // e.preventDefault();
-        console.log(typedPriceValue);
-        console.log(typedPriceValue*2);
         const typedPriceValueType = typedPriceValue*2;
         if(typedPriceValueType && typedPriceSource.length >= 10 && typedUniqueIdentifier){
             //Update the DB and close the input form.
             const otherPriceDataLength = otherPriceDataList.length;
             const db = getDatabase();
-            const dataToPushToDatabase = {"SUBCOMPONENT_STRING": inputOtherPriceIngFormData, "UNIQUE_ID_STRING": typedUniqueIdentifier, "PRICE_SOURCE": typedPriceSource, "PRICE": typedPriceValue, "TIMESTAMP": db.ServerValue.TIMESTAMP }
+            const dataToPushToDatabase = {"SUBCOMPONENT_STRING": inputOtherPriceIngFormData, "UNIQUE_ID_STRING": typedUniqueIdentifier, "PRICE_SOURCE": typedPriceSource, "PRICE": typedPriceValue, "TIMESTAMP": firebase.database.ServerValue.TIMESTAMP}
             set(ref(db, 'OTHER/' + otherPriceDataLength), dataToPushToDatabase);
             setWarningMessage('Success!'); 
             setShowNewIngredientFormToggle(false);
@@ -164,9 +178,9 @@ function InputNewOtherPriceIngredientForm({setShowNewIngredientFormToggle, input
                 <div className='input__new__ingredient__form__select__identifier'>
                     {formType === "NEW_INGREDIENT" ? <div className='input__new__ingredient__form__label'>Create a unique identifier</div> : <div className='input__new__ingredient__form__label'>Search for the ingredient identifier</div>}
                     {formType === 'UPDATE_INGREDIENT' ? 
-                    <Autocomplete onInputChange={handleUniqueIDChange} onClick={handleUniqueIDChange} disablePortal id='combo__search__box' size='small' freeSolo={true} options={otherPriceDataList} sx={{ width: '100%' }}  renderInput={(params) => <TextField {...params} label="Search Ingredients..." />}/> 
+                    <Autocomplete onInputChange={handleUniqueIDChange} onClick={handleUniqueIDChange} disablePortal id='combo__search__box' size='small' options={otherPriceDataList} sx={{ width: '100%' }}  renderInput={(params) => <TextField {...params} label="Search Ingredients..." />}/> 
                     : 
-                    <Autocomplete onInputChange={handleUniqueIDChange} onClick={handleUniqueIDChange}  disablePortal id='combo__search__box'  size='small' options={otherPriceDataList} sx={{ width: '100%' }}  renderInput={(params) => <TextField {...params} label="Unique Text..." />}/> 
+                    <Autocomplete onInputChange={handleUniqueIDChange} onClick={handleUniqueIDChange}  disablePortal id='combo__search__box'  size='small' freeSolo={true} options={otherPriceDataList} sx={{ width: '100%' }}  renderInput={(params) => <TextField {...params} label="Unique Text..." />}/> 
                     }
                     <div className='input__new__ingredient__form__search__info'>
                         {lastUpdatedOn && <div>Last Updated: {lastUpdatedOn}</div> }

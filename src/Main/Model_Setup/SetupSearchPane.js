@@ -34,12 +34,12 @@ function SetupSearchPane({LPFOptionSelected, LPFSearchedOption, handlePageSelect
         {label: 'Net Price', field: 'NET_PRICE'}
     ]
 
-    const modelCompletionList = [
-        'Linked Components', 
-        'Packaging Items Assigned', 
-        'Variables Set',
-        'Ready to Model'
-    ]
+    // const modelCompletionList = [
+    //     'Linked Components', 
+    //     'Packaging Items Assigned', 
+    //     'Variables Set',
+    //     'Ready to Model'
+    // ]
 
     const handleFilter = (items) => {
         return (searchValue) => {
@@ -78,7 +78,7 @@ function SetupSearchPane({LPFOptionSelected, LPFSearchedOption, handlePageSelect
             ))}
             </div>
             <div className='setupsearchpane__search__details'>
-            <p>Model Completion</p>
+            {/* <p>Model Completion</p>
             {modelCompletionList.map((item, index) => (
                 <div className='setupsearchpane__search__details__row' key={index}>
                     <div className='setupsearchpane__search__details__label'>
@@ -88,7 +88,7 @@ function SetupSearchPane({LPFOptionSelected, LPFSearchedOption, handlePageSelect
                         Value
                     </div>
                 </div>
-            ))}
+            ))} */}
             </div>
         </div>
     )
