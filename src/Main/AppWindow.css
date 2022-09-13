@@ -9,4 +9,5 @@
     border-radius: 5px;
     background-color: rgb(196, 196, 196);
     overflow-x: scroll;
+    z-index: -1;
 }

@@ -5,6 +5,8 @@ import AnalysisPage from './Analysis_Page/AnalysisPage.js';
 import TrendingPage from './Trending_Page/TrendingPage';
 import ModellingPage from './Modelling_Page/ModellingPage';
 import LoadingSpinner from './LoadingSpinner';
+import ThreeDModel from './ThreeDModel';
+
 
 function AppWindow({selectedPage}) {
 
@@ -23,7 +25,8 @@ function AppWindow({selectedPage}) {
             {selectedPage==='MODEL' ? <ModellingPage/> : <div></div>}
             {selectedPage==='ANALYSIS' ? <AnalysisPage/> : <div></div>}
             {selectedPage==='TRENDING' ? <TrendingPage/> : <div></div>}
-            {loadingSpinnerToggle && <LoadingSpinner/>}
+            {/* {loadingSpinnerToggle && <LoadingSpinner/>} */}
+            {/* <ThreeDModel/> */}
         </div>
         
     )

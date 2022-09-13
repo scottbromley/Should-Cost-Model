@@ -1,0 +1,10 @@
+.three__d__model__outer{
+    width: 50%;
+    height: 75%;
+    /* background-color: rgb(241, 241, 241); */
+    position: fixed;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    border-radius: 5px;
+    top: 12%; 
+    left: 25%;
+}
